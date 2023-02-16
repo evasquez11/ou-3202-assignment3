@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import static java.util.Arrays.stream;
 
 public class math {
 
@@ -20,12 +21,23 @@ public class math {
 
             int sum = getSum(size, array);
             int product = getProduct(size, array);
+            int[] reverse = reverseArray(size, array);
 
             System.out.println("Sum of given array is " + sum);
             System.out.println("Product of given array is " + product);
-
+            stream(reverse).forEach(i -> System.out.print(i + " "));
         }
 
+    }
+    public static int[] reverseArray(int size, int[] array){
+
+        int[] arr = new int[size];
+        int j = size;
+        for (int i = 0; i < size; i++) {
+            arr[j - 1] = array[i];
+            j = j - 1;
+        }
+        return arr;
     }
 
     public static int getProduct(int size, int[] array){
